@@ -2,6 +2,7 @@ package com.esaa.corp.stock.producer.items.handlers.routes;
 
 import com.esaa.corp.stock.producer.items.models.dto.ItemCreateRequestDto;
 import com.esaa.corp.stock.producer.items.useCases.createItem.CreateItemUseCase;
+import com.esaa.corp.stock.producer.items.useCases.createItem.ICreateItem;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -14,7 +15,7 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 public class ItemRoutes {
 
     @Bean
-    public RouterFunction<ServerResponse> createItem(CreateItemUseCase useCase) {
+    public RouterFunction<ServerResponse> createItem(ICreateItem useCase) {
 
         return RouterFunctions.route(
                 RequestPredicates.POST("/item/create").and(RequestPredicates.accept(MediaType.APPLICATION_JSON)),
