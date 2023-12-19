@@ -1,6 +1,7 @@
 package com.esaa.corp.stock.producer.stock.handlers.routes;
 
 import com.esaa.corp.stock.producer._commons.models.dto.PageRequestDto;
+import com.esaa.corp.stock.producer._commons.models.dto.PageResponseWrapperDto;
 import com.esaa.corp.stock.producer.stock.models.dto.CreateSingleMovementRequestDto;
 import com.esaa.corp.stock.producer.stock.models.dto.StockPageResponseDto;
 import com.esaa.corp.stock.producer.stock.useCases.createSingleMovement.ICreateSingleMovementUseCase;
@@ -9,7 +10,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.BodyInserters;
-import org.springframework.web.reactive.function.server.*;
+import org.springframework.web.reactive.function.server.RequestPredicates;
+import org.springframework.web.reactive.function.server.RouterFunction;
+import org.springframework.web.reactive.function.server.RouterFunctions;
+import org.springframework.web.reactive.function.server.ServerResponse;
 
 @Configuration
 public class StockRoutes {

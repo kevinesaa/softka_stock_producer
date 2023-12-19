@@ -1,7 +1,6 @@
 package com.esaa.corp.stock.producer.items.handlers.routes;
 
 import com.esaa.corp.stock.producer.items.models.dto.ItemCreateRequestDto;
-import com.esaa.corp.stock.producer.items.useCases.createItem.CreateItemUseCase;
 import com.esaa.corp.stock.producer.items.useCases.createItem.ICreateItem;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

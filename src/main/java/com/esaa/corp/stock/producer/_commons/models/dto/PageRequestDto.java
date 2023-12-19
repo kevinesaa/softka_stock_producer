@@ -4,7 +4,7 @@ import java.util.Optional;
 
 public class PageRequestDto {
 
-    public final static int DEFAULT_PAGE = 0;
+    public final static int DEFAULT_PAGE = 1;
     public final static int DEFAULT_SIZE = 30;
 
     private Integer page;

@@ -2,8 +2,6 @@ package com.esaa.corp.stock.producer.sales.handlers.routes;
 
 import com.esaa.corp.stock.producer.sales.models.dto.SaleRequestDto;
 import com.esaa.corp.stock.producer.sales.useCases.createReatilSale.ICreateRetailSaleUseCase;
-import com.esaa.corp.stock.producer.stock.models.dto.CreateSingleMovementRequestDto;
-import com.esaa.corp.stock.producer.stock.useCases.createSingleMovement.ICreateSingleMovementUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;

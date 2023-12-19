@@ -1,7 +1,5 @@
 package com.esaa.corp.stock.producer.itemPrice.models.dto;
 
-import com.esaa.corp.stock.producer._commons.models.database.Item;
-
 import java.math.BigDecimal;
 
 public class CreateItemPriceRequestDto {
