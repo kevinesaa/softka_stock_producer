@@ -15,7 +15,7 @@ public class Item implements Serializable {
     @Indexed(unique=true)
     private String code;
     private String name;
-    private Long quantity;
+    private long quantity;
 
     public String getId() {
         return id;

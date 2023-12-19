@@ -7,8 +7,8 @@ public class CreateSingleMovementResponseDto {
     private String reason;
     private Long movementQuantity;
     private String itemId;
-    private String code;
-    private String name;
+    private String itemCode;
+    private String itemName;
     private Long itemQuantity;
 
     public String getMovementId() {
@@ -51,20 +51,20 @@ public class CreateSingleMovementResponseDto {
         this.itemId = itemId;
     }
 
-    public String getCode() {
-        return code;
+    public String getItemCode() {
+        return itemCode;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setItemCode(String itemCode) {
+        this.itemCode = itemCode;
     }
 
-    public String getName() {
-        return name;
+    public String getItemName() {
+        return itemName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
     }
 
     public Long getItemQuantity() {

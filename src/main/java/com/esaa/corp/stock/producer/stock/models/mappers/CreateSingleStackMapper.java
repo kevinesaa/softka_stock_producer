@@ -11,6 +11,7 @@ public class CreateSingleStackMapper {
         final ItemMovement movement = new ItemMovement();
         movement.setItemId(requestModel.getItemId());
         movement.setReason(requestModel.getReason());
+        movement.setQuantity(requestModel.getQuantity());
         return movement;
     }
 
@@ -19,8 +20,8 @@ public class CreateSingleStackMapper {
         final Item item = movement.getItem();
 
         response.setItemId(item.getId());
-        response.setName(item.getName());
-        response.setCode(item.getCode());
+        response.setItemName(item.getName());
+        response.setItemCode(item.getCode());
         response.setItemQuantity(item.getQuantity());
 
         response.setMovementId(movement.getId());
