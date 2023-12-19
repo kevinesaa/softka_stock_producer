@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
+import java.util.Collections;
 import java.util.List;
 
 @Component
@@ -22,13 +23,17 @@ public class CreateRetailSaleUseCase implements ICreateRetailSaleUseCase{
     public Mono<SaleResponseDto> apply(final SaleRequestDto saleRequestDto) {
 
         final PriceTypeEnum priceTypeEnum = PriceTypeEnum.RETAIL_PRICE;
-        final List<SaleDetail> saleDetailItems = saleRequestDto
-                .getItems()
-                .stream()
-                .map(item -> mapper.singleItemRequestModelToDbModel(item))
-                .peek(item->item.setPriceType(priceTypeEnum))
-                .toList();
+        List<SaleDetail> saleDetailItems = Collections.EMPTY_LIST;
 
+        if(saleRequestDto.getItems() != null ) {
+
+            saleDetailItems = saleRequestDto
+                    .getItems()
+                    .stream()
+                    .map(item -> mapper.singleItemRequestModelToDbModel(item))
+                    .peek(item -> item.setPriceType(priceTypeEnum))
+                    .toList();
+        }
         //save sale
         final Sale sale = new Sale();
         sale.setPriceType(priceTypeEnum);
