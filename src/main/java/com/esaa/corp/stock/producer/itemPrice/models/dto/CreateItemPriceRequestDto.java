@@ -9,7 +9,7 @@ public class CreateItemPriceRequestDto {
     private String itemId;
     private String priceName;
     private Long minUnits;
-    private BigDecimal unitPrice;
+    private BigDecimal pricePerUnit;
 
     public String getItemId() {
         return itemId;
@@ -35,11 +35,11 @@ public class CreateItemPriceRequestDto {
         this.minUnits = minUnits;
     }
 
-    public BigDecimal getUnitPrice() {
-        return unitPrice;
+    public BigDecimal getpricePerUnit() {
+        return pricePerUnit;
     }
 
-    public void setUnitPrice(BigDecimal unitPrice) {
-        this.unitPrice = unitPrice;
+    public void setpricePerUnit(BigDecimal pricePerUnit) {
+        this.pricePerUnit = pricePerUnit;
     }
 }

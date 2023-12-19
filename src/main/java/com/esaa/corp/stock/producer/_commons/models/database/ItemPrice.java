@@ -1,16 +1,19 @@
 package com.esaa.corp.stock.producer._commons.models.database;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-public class ItemPrice {
+public class ItemPrice implements Serializable {
 
     //@Id
     private String id;
+    private Integer typePriceId;
     private String itemId;
+    private PriceTypeWrapper priceType;
     private String priceName;
     private Long minUnits;
-    private BigDecimal unitPrice;
+    private BigDecimal pricePerUnit;
     private Item item;
 
     public String getId() {
@@ -29,6 +32,31 @@ public class ItemPrice {
         this.itemId = itemId;
     }
 
+    public Integer getTypePriceId() {
+        return typePriceId;
+    }
+
+    public void setTypePriceId(Integer typePriceId) {
+        this.typePriceId = typePriceId;
+    }
+
+    public PriceTypeWrapper getPriceType() {
+        return priceType;
+    }
+
+    public PriceTypeEnum getPriceTypeAsEnum() {
+        return PriceTypeEnum.searchById(this.priceType.getId());
+    }
+
+    public void setPriceType(PriceTypeWrapper priceType) {
+
+        this.priceType = priceType;
+    }
+    public void setPriceType(PriceTypeEnum priceType) {
+        this.priceType = priceType.getWrapper();
+    }
+
+
     public String getPriceName() {
         return priceName;
     }
@@ -45,12 +73,12 @@ public class ItemPrice {
         this.minUnits = minUnits;
     }
 
-    public BigDecimal getUnitPrice() {
-        return unitPrice;
+    public BigDecimal getpricePerUnit() {
+        return pricePerUnit;
     }
 
-    public void setUnitPrice(BigDecimal unitPrice) {
-        this.unitPrice = unitPrice;
+    public void setpricePerUnit(BigDecimal pricePerUnit) {
+        this.pricePerUnit = pricePerUnit;
     }
 
     public Item getItem() {

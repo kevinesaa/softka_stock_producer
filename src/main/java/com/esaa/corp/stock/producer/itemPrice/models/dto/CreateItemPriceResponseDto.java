@@ -10,7 +10,7 @@ public class CreateItemPriceResponseDto {
     private String itemId;
     private String itemName;
     private String itemCode;
-    private BigDecimal unitPrice;
+    private BigDecimal pricePerUnit;
 
     public String getPriceId() {
         return priceId;
@@ -60,11 +60,11 @@ public class CreateItemPriceResponseDto {
         this.itemCode = itemCode;
     }
 
-    public void setUnitPrice(BigDecimal unitPrice) {
-        this.unitPrice = unitPrice;
+    public void setpricePerUnit(BigDecimal pricePerUnit) {
+        this.pricePerUnit = pricePerUnit;
     }
 
-    public BigDecimal getUnitPrice() {
-        return unitPrice;
+    public BigDecimal getpricePerUnit() {
+        return pricePerUnit;
     }
 }

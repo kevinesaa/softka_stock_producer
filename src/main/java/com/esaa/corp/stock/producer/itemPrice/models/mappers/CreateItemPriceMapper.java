@@ -11,7 +11,7 @@ public class CreateItemPriceMapper {
         final  ItemPrice itemPrice = new ItemPrice();
         itemPrice.setItemId(requestModel.getItemId());
         itemPrice.setPriceName(requestModel.getPriceName());
-        itemPrice.setUnitPrice(requestModel.getUnitPrice());
+        itemPrice.setpricePerUnit(requestModel.getpricePerUnit());
         itemPrice.setMinUnits(requestModel.getMinUnits());
         return itemPrice;
     }
@@ -23,7 +23,7 @@ public class CreateItemPriceMapper {
 
         response.setPriceId(itemPrice.getId());
         response.setPriceName(itemPrice.getPriceName());
-        response.setUnitPrice(itemPrice.getUnitPrice());
+        response.setpricePerUnit(itemPrice.getpricePerUnit());
         response.setMinUnit(itemPrice.getMinUnits());
 
         response.setItemId(item.getId());

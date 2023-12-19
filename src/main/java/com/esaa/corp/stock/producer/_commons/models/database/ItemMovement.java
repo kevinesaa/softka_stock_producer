@@ -1,8 +1,9 @@
 package com.esaa.corp.stock.producer._commons.models.database;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class ItemMovement {
+public class ItemMovement implements Serializable {
 
     //@Id
     private String id;
