@@ -1,8 +1,9 @@
-package com.esaa.corp.stock.producer.stock.models.dto;
+package com.esaa.corp.stock.producer.stock.models.dto.createSingleMovement;
 
 public class CreateSingleMovementResponseDto {
 
     private String movementId;
+    private String batchId;
     private String reason;
     private Long movementQuantity;
     private String itemId;
@@ -16,6 +17,14 @@ public class CreateSingleMovementResponseDto {
 
     public void setMovementId(String movementId) {
         this.movementId = movementId;
+    }
+
+    public String getBatchId() {
+        return batchId;
+    }
+
+    public void setBatchId(String batchId) {
+        this.batchId = batchId;
     }
 
     public String getReason() {

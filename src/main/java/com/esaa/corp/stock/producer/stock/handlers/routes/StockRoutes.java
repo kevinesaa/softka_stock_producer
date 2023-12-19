@@ -1,9 +1,10 @@
 package com.esaa.corp.stock.producer.stock.handlers.routes;
 
 import com.esaa.corp.stock.producer._commons.models.dto.PageRequestDto;
-import com.esaa.corp.stock.producer._commons.models.dto.PageResponseWrapperDto;
-import com.esaa.corp.stock.producer.stock.models.dto.CreateSingleMovementRequestDto;
-import com.esaa.corp.stock.producer.stock.models.dto.StockPageResponseDto;
+import com.esaa.corp.stock.producer.stock.models.dto.createBatchMovement.CreateBatchMovementRequestDto;
+import com.esaa.corp.stock.producer.stock.models.dto.createSingleMovement.CreateSingleMovementRequestDto;
+import com.esaa.corp.stock.producer.stock.models.dto.getStockItemsByPage.StockPageResponseDto;
+import com.esaa.corp.stock.producer.stock.useCases.createBatchMovement.ICreateBatchMovement;
 import com.esaa.corp.stock.producer.stock.useCases.createSingleMovement.ICreateSingleMovementUseCase;
 import com.esaa.corp.stock.producer.stock.useCases.getStockByPages.IGetStockByPageUseCase;
 import org.springframework.context.annotation.Bean;
@@ -33,7 +34,20 @@ public class StockRoutes {
     }
 
     @Bean
-    public RouterFunction<ServerResponse> getStock(IGetStockByPageUseCase useCase) {
+    public RouterFunction<ServerResponse> createStockBatchItemsMovements(ICreateBatchMovement useCase) {
+
+        return RouterFunctions.route(
+                RequestPredicates
+                        .POST("/stock/movement/create/batch")
+                        .and(RequestPredicates.accept(MediaType.APPLICATION_JSON)),
+                request -> request.bodyToMono(CreateBatchMovementRequestDto.class)
+                        .flatMap(useCase::apply)
+                        .flatMap(responseModel -> ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).bodyValue(responseModel))
+        );
+    }
+
+    @Bean
+    public RouterFunction<ServerResponse> getStockByPage(IGetStockByPageUseCase useCase) {
 
         return RouterFunctions.route(
                 RequestPredicates

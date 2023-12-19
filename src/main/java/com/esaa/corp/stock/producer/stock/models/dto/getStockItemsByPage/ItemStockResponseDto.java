@@ -1,4 +1,4 @@
-package com.esaa.corp.stock.producer.stock.models.dto;
+package com.esaa.corp.stock.producer.stock.models.dto.getStockItemsByPage;
 
 
 

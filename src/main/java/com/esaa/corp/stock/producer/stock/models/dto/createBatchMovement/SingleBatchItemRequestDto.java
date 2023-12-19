@@ -1,9 +1,8 @@
-package com.esaa.corp.stock.producer.stock.models.dto;
+package com.esaa.corp.stock.producer.stock.models.dto.createBatchMovement;
 
-public class CreateSingleMovementRequestDto {
+public class SingleBatchItemRequestDto {
 
     private String itemId;
-    private String reason;
     private Long quantity;
 
     public String getItemId() {
@@ -12,14 +11,6 @@ public class CreateSingleMovementRequestDto {
 
     public void setItemId(String itemId) {
         this.itemId = itemId;
-    }
-
-    public String getReason() {
-        return reason;
-    }
-
-    public void setReason(String reason) {
-        this.reason = reason;
     }
 
     public Long getQuantity() {

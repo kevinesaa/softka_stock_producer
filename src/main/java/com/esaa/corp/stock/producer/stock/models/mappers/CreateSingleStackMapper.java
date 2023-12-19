@@ -2,8 +2,8 @@ package com.esaa.corp.stock.producer.stock.models.mappers;
 
 import com.esaa.corp.stock.producer._commons.models.database.Item;
 import com.esaa.corp.stock.producer._commons.models.database.ItemMovement;
-import com.esaa.corp.stock.producer.stock.models.dto.CreateSingleMovementRequestDto;
-import com.esaa.corp.stock.producer.stock.models.dto.CreateSingleMovementResponseDto;
+import com.esaa.corp.stock.producer.stock.models.dto.createSingleMovement.CreateSingleMovementRequestDto;
+import com.esaa.corp.stock.producer.stock.models.dto.createSingleMovement.CreateSingleMovementResponseDto;
 
 public class CreateSingleStackMapper {
 
