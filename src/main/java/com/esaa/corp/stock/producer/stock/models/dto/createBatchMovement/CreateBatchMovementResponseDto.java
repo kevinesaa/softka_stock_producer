@@ -1,6 +1,6 @@
 package com.esaa.corp.stock.producer.stock.models.dto.createBatchMovement;
 
-import com.esaa.corp.stock.producer.stock.models.dto.createSingleMovement.CreateSingleMovementResponseDto;
+
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ public class CreateBatchMovementResponseDto {
     private String reason;
     private Long completedMovements;
     private Long failedMovements;
-    private List<CreateSingleMovementResponseDto> items;
+    private List<SingleBatchItemResponseDto> items;
 
     public String getBatchId() {
         return batchId;
@@ -44,11 +44,11 @@ public class CreateBatchMovementResponseDto {
         this.failedMovements = failedMovements;
     }
 
-    public List<CreateSingleMovementResponseDto> getItems() {
+    public List<SingleBatchItemResponseDto> getItems() {
         return items;
     }
 
-    public void setItems(List<CreateSingleMovementResponseDto> items) {
+    public void setItems(List<SingleBatchItemResponseDto> items) {
         this.items = items;
     }
 }
