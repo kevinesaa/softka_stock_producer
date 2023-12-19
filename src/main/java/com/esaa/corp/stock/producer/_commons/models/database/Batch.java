@@ -1,12 +1,14 @@
 package com.esaa.corp.stock.producer._commons.models.database;
 
+import org.springframework.data.annotation.Id;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
 public class Batch implements Serializable {
 
-    //@Id
+    @Id
     private String id;
     private String reason;
     private List<ItemMovement> items;

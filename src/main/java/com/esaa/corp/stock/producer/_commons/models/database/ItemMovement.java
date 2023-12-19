@@ -1,11 +1,15 @@
 package com.esaa.corp.stock.producer._commons.models.database;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.io.Serializable;
 import java.util.Objects;
 
+@Document
 public class ItemMovement implements Serializable {
 
-    //@Id
+    @Id
     private String id;
     private String itemId;
     private String reason;

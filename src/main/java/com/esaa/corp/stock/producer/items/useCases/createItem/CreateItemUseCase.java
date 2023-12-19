@@ -1,6 +1,7 @@
 package com.esaa.corp.stock.producer.items.useCases.createItem;
 
 import com.esaa.corp.stock.producer._commons.models.database.Item;
+import com.esaa.corp.stock.producer.items.drivenAdapters.respositories.IItemRepository;
 import com.esaa.corp.stock.producer.items.models.dto.ItemCreateRequestDto;
 import com.esaa.corp.stock.producer.items.models.dto.ItemCreateResponseDto;
 import com.esaa.corp.stock.producer.items.models.mappers.CreateItemMapper;
@@ -11,18 +12,19 @@ import reactor.core.publisher.Mono;
 @Component
 public class CreateItemUseCase implements ICreateItem {
 
-    /*
+
     @Autowired
-    private IItemRepository repository;
-    */
+    private IItemRepository itemRepository;
+
     @Autowired
     private CreateItemMapper mapper;
 
 
     @Override
     public Mono<ItemCreateResponseDto> apply(ItemCreateRequestDto requestModel) {
+
         final Item item = mapper.requestModelToDbModel(requestModel);
-        final ItemCreateResponseDto responseModel = mapper.dbModelToResponseModel(item);
-        return Mono.just(responseModel);
+
+        return itemRepository.save(item).map(itemCompleted -> mapper.dbModelToResponseModel(itemCompleted));
     }
 }
