@@ -9,6 +9,7 @@ public class CreateSingleStackMapper {
 
     public ItemMovement requestToDbModel(final CreateSingleMovementRequestDto requestModel) {
         final ItemMovement movement = new ItemMovement();
+        movement.setItemId(requestModel.getItemId());
         movement.setReason(requestModel.getReason());
         return movement;
     }

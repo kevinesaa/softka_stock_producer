@@ -6,6 +6,7 @@ public class ItemMovement {
 
     //@Id
     private String id;
+    private String itemId;
     private String reason;
     private Long quantity;
     private Item item;
@@ -16,6 +17,14 @@ public class ItemMovement {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(String itemId) {
+        this.itemId = itemId;
     }
 
     public String getReason() {

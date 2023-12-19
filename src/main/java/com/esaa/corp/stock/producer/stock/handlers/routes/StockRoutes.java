@@ -14,7 +14,10 @@ public class StockRoutes {
     public RouterFunction<ServerResponse> createSingleItemMovement(ICreateSingleMovementUseCase useCase)
     {
         return RouterFunctions.route(
-                RequestPredicates.POST("/stock/movement/create").and(RequestPredicates.accept(MediaType.APPLICATION_JSON)),
+                RequestPredicates
+                        .POST("/stock/movement/create")
+                        .and(RequestPredicates.accept(MediaType.APPLICATION_JSON)),
+
                 request -> request.bodyToMono(CreateSingleMovementRequestDto.class)
                         .flatMap(useCase::apply)
                         .flatMap(responseModel -> ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).bodyValue(responseModel))
