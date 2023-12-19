@@ -4,6 +4,7 @@ import com.esaa.corp.stock.producer.itemPrice.models.mappers.CreateItemPriceMapp
 import com.esaa.corp.stock.producer.items.models.mappers.CreateItemMapper;
 import com.esaa.corp.stock.producer.sales.models.mappers.CreateSaleMapper;
 import com.esaa.corp.stock.producer.stock.models.mappers.CreateSingleStackMapper;
+import com.esaa.corp.stock.producer.stock.models.mappers.StockItemMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -28,5 +29,10 @@ public class MapperConfig {
     @Bean
     public CreateSaleMapper createSaleMapper() {
         return new CreateSaleMapper();
+    }
+
+    @Bean
+    public StockItemMapper createStockItemMapper() {
+        return new StockItemMapper();
     }
 }

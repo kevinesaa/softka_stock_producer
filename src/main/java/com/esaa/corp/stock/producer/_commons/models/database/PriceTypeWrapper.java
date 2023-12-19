@@ -1,14 +1,18 @@
 package com.esaa.corp.stock.producer._commons.models.database;
 
 
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.io.Serializable;
 import java.util.Objects;
 
+@Document("item_types")
 public class PriceTypeWrapper implements Serializable {
 
-    //@Indexed(unique=true)
+    @Indexed(unique=true)
     private Integer id;
-    //@Indexed(unique=true)
+    @Indexed(unique=true)
     private String name;
 
     public PriceTypeWrapper() {

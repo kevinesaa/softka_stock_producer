@@ -5,14 +5,14 @@ public class PageResponseModel {
     private int currentPage;
     private int size;
     private int maxPages;
-    private int totalItems;
+    private long totalItems;
     private int skip;
 
-    public PageResponseModel(int totalItems, int currentPage, int pageSize) {
+    public PageResponseModel(long totalItems, int currentPage, int pageSize) {
 
         final int limit = pageSize >= 1? pageSize:PageRequestDto.DEFAULT_SIZE;
         final int skips = Math.abs( limit * (currentPage - 1 ) );
-        setMaxPages(totalItems/limit);
+        setMaxPages((int) totalItems/limit );
         setCurrentPage(currentPage);
         setTotalItems(totalItems);
         setSize(limit);
@@ -43,11 +43,11 @@ public class PageResponseModel {
         this.maxPages = maxPages;
     }
 
-    public int getTotalItems() {
+    public long getTotalItems() {
         return totalItems;
     }
 
-    public void setTotalItems(int totalItems) {
+    public void setTotalItems(long totalItems) {
         this.totalItems = totalItems;
     }
 

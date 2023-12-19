@@ -1,18 +1,18 @@
 package com.esaa.corp.stock.producer._commons.models.database;
-/*
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
-*/
+
 import java.io.Serializable;
 import java.util.Objects;
 
-//@Document
+@Document
 public class Item implements Serializable {
 
-    //@Id
+    @Id
     private String id;
-    //@Indexed(unique=true)
+    @Indexed(unique=true)
     private String code;
     private String name;
     private Long quantity;
