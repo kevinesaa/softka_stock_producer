@@ -4,18 +4,28 @@ import java.math.BigDecimal;
 
 public class CreateItemPriceRequestDto {
 
+
     private String itemId;
+    private String priceCode;
+    private Integer priceTypeCode;
     private String priceName;
     private Long minUnits;
-    private String priceTypeId;
     private BigDecimal pricePerUnit;
 
-    public String getPriceTypeId() {
-        return priceTypeId;
+    public Integer getPriceTypeCode() {
+        return priceTypeCode;
     }
 
-    public void setPriceTypeId(String priceTypeId) {
-        this.priceTypeId = priceTypeId;
+    public void setPriceTypeCode(Integer priceTypeCode) {
+        this.priceTypeCode = priceTypeCode;
+    }
+
+    public String getPriceCode() {
+        return priceCode;
+    }
+
+    public void setPriceCode(String priceCode) {
+        this.priceCode = priceCode;
     }
 
     public String getItemId() {

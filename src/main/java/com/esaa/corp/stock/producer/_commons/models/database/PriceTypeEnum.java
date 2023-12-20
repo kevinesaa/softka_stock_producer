@@ -37,14 +37,14 @@ public enum PriceTypeEnum implements Serializable {
         return this.wrapper;
     }
 
-    public static PriceTypeEnum searchById(final int id) {
+    public static PriceTypeEnum searchByPriceCode(final int priceCode) {
 
         if(PRICE_TYPE_ENUM_MAP_BY_ID.isEmpty()) {
             for( PriceTypeEnum it :PriceTypeEnum.values()) {
                 PRICE_TYPE_ENUM_MAP_BY_ID.put(it.getPriceCode(),it);
             }
         }
-        return PRICE_TYPE_ENUM_MAP_BY_ID.get(id);
+        return PRICE_TYPE_ENUM_MAP_BY_ID.get(priceCode);
     }
 
 }

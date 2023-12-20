@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 public class CreateItemPriceResponseDto {
 
     private String priceId;
+    private String priceCode;
     private String priceName;
     private Long minUnit;
     private String itemId;
@@ -18,6 +19,14 @@ public class CreateItemPriceResponseDto {
 
     public void setPriceId(String priceId) {
         this.priceId = priceId;
+    }
+
+    public String getPriceCode() {
+        return priceCode;
+    }
+
+    public void setPriceCode(String priceCode) {
+        this.priceCode = priceCode;
     }
 
     public String getPriceName() {
@@ -60,11 +69,11 @@ public class CreateItemPriceResponseDto {
         this.itemCode = itemCode;
     }
 
-    public void setpricePerUnit(BigDecimal pricePerUnit) {
+    public void setPricePerUnit(BigDecimal pricePerUnit) {
         this.pricePerUnit = pricePerUnit;
     }
 
-    public BigDecimal getpricePerUnit() {
+    public BigDecimal getPricePerUnit() {
         return pricePerUnit;
     }
 }

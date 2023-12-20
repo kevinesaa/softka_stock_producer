@@ -1,6 +1,7 @@
 package com.esaa.corp.stock.producer._commons.models.database;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
@@ -12,7 +13,9 @@ public class ItemPrice implements Serializable {
 
     @Id
     private String id;
-    private Integer typePriceId;
+    @Indexed(unique=true)
+    private String priceCode;
+    private Integer typePriceCode;
     private String itemId;
     private PriceTypeWrapper priceType;
     private String priceName;
@@ -28,6 +31,14 @@ public class ItemPrice implements Serializable {
         this.id = id;
     }
 
+    public String getPriceCode() {
+        return priceCode;
+    }
+
+    public void setPriceCode(String priceCode) {
+        this.priceCode = priceCode;
+    }
+
     public String getItemId() {
         return itemId;
     }
@@ -36,12 +47,12 @@ public class ItemPrice implements Serializable {
         this.itemId = itemId;
     }
 
-    public Integer getTypePriceId() {
-        return typePriceId;
+    public Integer getTypePriceCode() {
+        return typePriceCode;
     }
 
-    public void setTypePriceId(Integer typePriceId) {
-        this.typePriceId = typePriceId;
+    public void setTypePriceCode(Integer typePriceCode) {
+        this.typePriceCode = typePriceCode;
     }
 
     public PriceTypeWrapper getPriceType() {
@@ -49,7 +60,7 @@ public class ItemPrice implements Serializable {
     }
 
     public PriceTypeEnum getPriceTypeAsEnum() {
-        return PriceTypeEnum.searchById(this.priceType.getPriceTypeCode());
+        return PriceTypeEnum.searchByPriceCode(this.priceType.getPriceTypeCode());
     }
 
     public void setPriceType(PriceTypeWrapper priceType) {
@@ -77,11 +88,11 @@ public class ItemPrice implements Serializable {
         this.minUnits = minUnits;
     }
 
-    public BigDecimal getpricePerUnit() {
+    public BigDecimal getPricePerUnit() {
         return pricePerUnit;
     }
 
-    public void setpricePerUnit(BigDecimal pricePerUnit) {
+    public void setPricePerUnit(BigDecimal pricePerUnit) {
         this.pricePerUnit = pricePerUnit;
     }
 
