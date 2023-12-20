@@ -4,7 +4,6 @@ package com.esaa.corp.stock.producer.stock.useCases.getStockByPages;
 import com.esaa.corp.stock.producer._commons.models.dto.PageRequestDto;
 import com.esaa.corp.stock.producer._commons.models.dto.PageResponseModel;
 import com.esaa.corp.stock.producer.items.drivenAdapters.respositories.IItemRepository;
-import com.esaa.corp.stock.producer.stock.models.dto.getStockItemsByPage.ItemStockResponseDto;
 import com.esaa.corp.stock.producer.stock.models.dto.getStockItemsByPage.StockPageResponseDto;
 import com.esaa.corp.stock.producer.stock.models.mappers.StockItemMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +11,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
-
-import java.util.Collections;
 
 @Component
 public class GetStockByPageUseCase implements IGetStockByPageUseCase {

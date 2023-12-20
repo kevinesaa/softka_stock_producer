@@ -9,7 +9,7 @@ public enum PriceTypeEnum implements Serializable {
     RETAIL_PRICE(1,"DETAL"),
     WHOLESALE_PRICE (2,"MAYOR");
 
-    private final int id;
+    private final int priceCode;
     private final String name;
     private final PriceTypeWrapper wrapper;
 
@@ -19,14 +19,14 @@ public enum PriceTypeEnum implements Serializable {
         PRICE_TYPE_ENUM_MAP_BY_ID = new HashMap<>();
     }
 
-    PriceTypeEnum(final int id,final String name) {
-        this.id = id;
+    PriceTypeEnum(final int priceCode,final String name) {
+        this.priceCode = priceCode;
         this.name = name;
-        this.wrapper = new PriceTypeWrapper(id,name);
+        this.wrapper = new PriceTypeWrapper(priceCode,name);
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getPriceCode() {
+        return priceCode;
     }
 
     public String getName() {
@@ -41,7 +41,7 @@ public enum PriceTypeEnum implements Serializable {
 
         if(PRICE_TYPE_ENUM_MAP_BY_ID.isEmpty()) {
             for( PriceTypeEnum it :PriceTypeEnum.values()) {
-                PRICE_TYPE_ENUM_MAP_BY_ID.put(it.getId(),it);
+                PRICE_TYPE_ENUM_MAP_BY_ID.put(it.getPriceCode(),it);
             }
         }
         return PRICE_TYPE_ENUM_MAP_BY_ID.get(id);

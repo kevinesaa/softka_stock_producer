@@ -1,12 +1,16 @@
 package com.esaa.corp.stock.producer._commons.models.database;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+@Document
 public class ItemPrice implements Serializable {
 
-    //@Id
+    @Id
     private String id;
     private Integer typePriceId;
     private String itemId;
@@ -45,7 +49,7 @@ public class ItemPrice implements Serializable {
     }
 
     public PriceTypeEnum getPriceTypeAsEnum() {
-        return PriceTypeEnum.searchById(this.priceType.getId());
+        return PriceTypeEnum.searchById(this.priceType.getPriceTypeCode());
     }
 
     public void setPriceType(PriceTypeWrapper priceType) {

@@ -1,11 +1,13 @@
 package com.esaa.corp.stock.producer._commons.models.database;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
+@Document
 public class Batch implements Serializable {
 
     @Id

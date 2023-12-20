@@ -7,7 +7,16 @@ public class CreateItemPriceRequestDto {
     private String itemId;
     private String priceName;
     private Long minUnits;
+    private String priceTypeId;
     private BigDecimal pricePerUnit;
+
+    public String getPriceTypeId() {
+        return priceTypeId;
+    }
+
+    public void setPriceTypeId(String priceTypeId) {
+        this.priceTypeId = priceTypeId;
+    }
 
     public String getItemId() {
         return itemId;
@@ -33,11 +42,11 @@ public class CreateItemPriceRequestDto {
         this.minUnits = minUnits;
     }
 
-    public BigDecimal getpricePerUnit() {
+    public BigDecimal getPricePerUnit() {
         return pricePerUnit;
     }
 
-    public void setpricePerUnit(BigDecimal pricePerUnit) {
+    public void setPricePerUnit(BigDecimal pricePerUnit) {
         this.pricePerUnit = pricePerUnit;
     }
 }
