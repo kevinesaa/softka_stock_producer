@@ -1,4 +1,4 @@
-package com.esaa.corp.stock.producer.sales.useCases.createMayorSale;
+package com.esaa.corp.stock.producer.sales.useCases.createWholeSale;
 
 import com.esaa.corp.stock.producer.sales.models.dto.SaleRequestDto;
 import com.esaa.corp.stock.producer.sales.models.dto.SaleResponseDto;
