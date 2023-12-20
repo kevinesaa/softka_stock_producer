@@ -2,6 +2,7 @@ package com.esaa.corp.stock.producer._config;
 
 import com.esaa.corp.stock.producer.itemPrice.models.mappers.CreateItemPriceMapper;
 import com.esaa.corp.stock.producer.items.models.mappers.CreateItemMapper;
+import com.esaa.corp.stock.producer.priceTypes.models.mappers.PriceTypeMapper;
 import com.esaa.corp.stock.producer.sales.models.mappers.CreateSaleMapper;
 import com.esaa.corp.stock.producer.stock.models.mappers.CreateBatchStockMapper;
 import com.esaa.corp.stock.producer.stock.models.mappers.CreateSingleStockMapper;
@@ -40,5 +41,10 @@ public class MapperConfig {
     @Bean
     public CreateBatchStockMapper createBatchStockMapper() {
         return new CreateBatchStockMapper();
+    }
+
+    @Bean
+    public PriceTypeMapper createPriceTypeMapper() {
+        return new PriceTypeMapper();
     }
 }
