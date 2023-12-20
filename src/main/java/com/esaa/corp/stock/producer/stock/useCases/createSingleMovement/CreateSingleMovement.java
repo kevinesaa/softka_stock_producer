@@ -1,11 +1,12 @@
 package com.esaa.corp.stock.producer.stock.useCases.createSingleMovement;
 
+import com.esaa.corp.stock.producer._commons.models.database.Item;
 import com.esaa.corp.stock.producer._commons.models.database.ItemMovement;
 import com.esaa.corp.stock.producer.items.drivenAdapters.respositories.IItemRepository;
 import com.esaa.corp.stock.producer.stock.drivenAdapters.respositories.IStockSingleMovementRepository;
 import com.esaa.corp.stock.producer.stock.models.dto.createSingleMovement.CreateSingleMovementRequestDto;
 import com.esaa.corp.stock.producer.stock.models.dto.createSingleMovement.CreateSingleMovementResponseDto;
-import com.esaa.corp.stock.producer.stock.models.mappers.CreateSingleStackMapper;
+import com.esaa.corp.stock.producer.stock.models.mappers.CreateSingleStockMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
@@ -18,7 +19,7 @@ public class CreateSingleMovement implements ICreateSingleMovementUseCase{
     @Autowired
     private IItemRepository itemRepository;
     @Autowired
-    private CreateSingleStackMapper mapper;
+    private CreateSingleStockMapper mapper;
 
     @Override
     public Mono<CreateSingleMovementResponseDto> apply(final CreateSingleMovementRequestDto requestModel) {
@@ -39,8 +40,9 @@ public class CreateSingleMovement implements ICreateSingleMovementUseCase{
                     return singleMovementRepository
                             .save(movement)
                             .flatMap(movementCompleted -> {
-                                item.setQuantity(newQuantity);
-                                return itemRepository.save(item).thenReturn(movementCompleted);
+                                Item itemFromMovement = movementCompleted.getItem();
+                                itemFromMovement.setQuantity(newQuantity);
+                                return itemRepository.save(itemFromMovement).thenReturn(movementCompleted);
                             });
 
                 })

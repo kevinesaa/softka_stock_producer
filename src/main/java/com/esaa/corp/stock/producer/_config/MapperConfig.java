@@ -3,7 +3,8 @@ package com.esaa.corp.stock.producer._config;
 import com.esaa.corp.stock.producer.itemPrice.models.mappers.CreateItemPriceMapper;
 import com.esaa.corp.stock.producer.items.models.mappers.CreateItemMapper;
 import com.esaa.corp.stock.producer.sales.models.mappers.CreateSaleMapper;
-import com.esaa.corp.stock.producer.stock.models.mappers.CreateSingleStackMapper;
+import com.esaa.corp.stock.producer.stock.models.mappers.CreateBatchStockMapper;
+import com.esaa.corp.stock.producer.stock.models.mappers.CreateSingleStockMapper;
 import com.esaa.corp.stock.producer.stock.models.mappers.StockItemMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,8 +18,8 @@ public class MapperConfig {
     }
 
     @Bean
-    public CreateSingleStackMapper createSingleStackMapper() {
-        return new CreateSingleStackMapper();
+    public CreateSingleStockMapper createSingleStackMapper() {
+        return new CreateSingleStockMapper();
     }
 
     @Bean
@@ -34,5 +35,10 @@ public class MapperConfig {
     @Bean
     public StockItemMapper createStockItemMapper() {
         return new StockItemMapper();
+    }
+
+    @Bean
+    public CreateBatchStockMapper createBatchStockMapper() {
+        return new CreateBatchStockMapper();
     }
 }

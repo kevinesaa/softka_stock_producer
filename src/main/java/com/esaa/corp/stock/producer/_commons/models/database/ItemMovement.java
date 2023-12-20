@@ -11,6 +11,7 @@ public class ItemMovement implements Serializable {
 
     @Id
     private String id;
+    private String batchId;
     private String itemId;
     private String reason;
     private Long quantity;
@@ -22,6 +23,14 @@ public class ItemMovement implements Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getBatchId() {
+        return batchId;
+    }
+
+    public void setBatchId(String batchId) {
+        this.batchId = batchId;
     }
 
     public String getItemId() {

@@ -5,7 +5,7 @@ import com.esaa.corp.stock.producer._commons.models.database.ItemMovement;
 import com.esaa.corp.stock.producer.stock.models.dto.createSingleMovement.CreateSingleMovementRequestDto;
 import com.esaa.corp.stock.producer.stock.models.dto.createSingleMovement.CreateSingleMovementResponseDto;
 
-public class CreateSingleStackMapper {
+public class CreateSingleStockMapper {
 
     public ItemMovement requestToDbModel(final CreateSingleMovementRequestDto requestModel) {
         final ItemMovement movement = new ItemMovement();
