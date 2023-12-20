@@ -6,6 +6,7 @@ import com.esaa.corp.stock.producer.sales.models.dto.SaleResponseDto;
 import com.esaa.corp.stock.producer.sales.models.dto.SaleSingeItemResponseDto;
 import com.esaa.corp.stock.producer.sales.models.dto.SaleSingleItemRequestDto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CreateSaleMapper {
@@ -20,6 +21,7 @@ public class CreateSaleMapper {
     public SaleSingeItemResponseDto saleDbModelToSingleItemResponse(final SaleDetail item) {
         final SaleSingeItemResponseDto response = new SaleSingeItemResponseDto();
         response.setItemId(item.getItemId());
+        response.setItemName(item.getItemName());
         response.setItemCode(item.getItemCode());
         response.setSaleQuantity(item.getSaleQuantity());
         response.setTotalAmount(item.getDetailTotal());
@@ -32,16 +34,14 @@ public class CreateSaleMapper {
         final SaleResponseDto response = new SaleResponseDto();
         response.setSaleId(sale.getId());
         response.setTotal(sale.getTotal());
-        if(sale.getItems() != null) {
 
-            final List<SaleSingeItemResponseDto> items =
-                    sale.getItems()
-                            .stream()
-                            .map(this::saleDbModelToSingleItemResponse)
-                            .toList();
+        final List<SaleSingeItemResponseDto> items =
+                sale.getItems()
+                        .stream()
+                        .map(this::saleDbModelToSingleItemResponse)
+                        .toList();
 
-            response.setItems(items);
-        }
+        response.setItems(items);
 
         return response;
     }

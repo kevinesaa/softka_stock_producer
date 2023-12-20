@@ -6,8 +6,8 @@ import java.util.Map;
 
 public enum PriceTypeEnum implements Serializable {
 
-    RETAIL_PRICE(1,"DETAL"),
-    WHOLESALE_PRICE (2,"MAYOR");
+    RETAIL_PRICE(1,"RETAIL_PRICE"),
+    WHOLESALE_PRICE (2,"WHOLESALE_PRICE");
 
     private final int priceCode;
     private final String name;

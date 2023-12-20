@@ -2,6 +2,7 @@ package com.esaa.corp.stock.producer.itemPrice.models.mappers;
 
 import com.esaa.corp.stock.producer._commons.models.database.Item;
 import com.esaa.corp.stock.producer._commons.models.database.ItemPrice;
+import com.esaa.corp.stock.producer._commons.models.database.PriceTypeEnum;
 import com.esaa.corp.stock.producer.itemPrice.models.dto.CreateItemPriceRequestDto;
 import com.esaa.corp.stock.producer.itemPrice.models.dto.CreateItemPriceResponseDto;
 
@@ -10,7 +11,7 @@ public class CreateItemPriceMapper {
     public ItemPrice requestModelToDbModel(final CreateItemPriceRequestDto requestModel) {
         final  ItemPrice itemPrice = new ItemPrice();
         itemPrice.setItemId(requestModel.getItemId());
-        itemPrice.setPriceCode(requestModel.getPriceCode());
+        itemPrice.setPriceType(PriceTypeEnum.searchByPriceCode(requestModel.getPriceTypeCode()));
         itemPrice.setPriceName(requestModel.getPriceName());
         itemPrice.setPricePerUnit(requestModel.getPricePerUnit());
         itemPrice.setMinUnits(requestModel.getMinUnits());
@@ -23,7 +24,7 @@ public class CreateItemPriceMapper {
         final Item item = itemPrice.getItem();
 
         response.setPriceId(itemPrice.getId());
-        response.setPriceCode(itemPrice.getPriceCode());
+        response.setPriceTypeCode(itemPrice.getTypePriceCode());
         response.setPriceName(itemPrice.getPriceName());
         response.setPricePerUnit(itemPrice.getPricePerUnit());
         response.setMinUnit(itemPrice.getMinUnits());

@@ -6,7 +6,6 @@ public class CreateItemPriceRequestDto {
 
 
     private String itemId;
-    private String priceCode;
     private Integer priceTypeCode;
     private String priceName;
     private Long minUnits;
@@ -20,13 +19,6 @@ public class CreateItemPriceRequestDto {
         this.priceTypeCode = priceTypeCode;
     }
 
-    public String getPriceCode() {
-        return priceCode;
-    }
-
-    public void setPriceCode(String priceCode) {
-        this.priceCode = priceCode;
-    }
 
     public String getItemId() {
         return itemId;

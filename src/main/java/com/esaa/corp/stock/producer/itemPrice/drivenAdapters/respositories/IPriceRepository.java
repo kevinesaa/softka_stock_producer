@@ -6,5 +6,5 @@ import reactor.core.publisher.Mono;
 
 public interface IPriceRepository extends ReactiveMongoRepository<ItemPrice,String> {
 
-    Mono<ItemPrice> findByPriceCode(String priceCode);
+    Mono<ItemPrice> findByItemIdAndTypePriceCode(String itemId,Integer typePriceCode);
 }

@@ -13,8 +13,6 @@ public class ItemPrice implements Serializable {
 
     @Id
     private String id;
-    @Indexed(unique=true)
-    private String priceCode;
     private Integer typePriceCode;
     private String itemId;
     private PriceTypeWrapper priceType;
@@ -29,14 +27,6 @@ public class ItemPrice implements Serializable {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getPriceCode() {
-        return priceCode;
-    }
-
-    public void setPriceCode(String priceCode) {
-        this.priceCode = priceCode;
     }
 
     public String getItemId() {

@@ -31,7 +31,7 @@ public class ItemPriceUseCase implements IItemPriceUseCase {
     public Mono<CreateItemPriceResponseDto> apply(CreateItemPriceRequestDto requestModel) {
 
        return priceRepository
-                .findByPriceCode(requestModel.getPriceCode())
+                .findByItemIdAndTypePriceCode(requestModel.getItemId(),requestModel.getPriceTypeCode())
                 .switchIfEmpty(
 
                      itemRepository
@@ -49,8 +49,6 @@ public class ItemPriceUseCase implements IItemPriceUseCase {
                     itemPrice.setPriceName(requestModel.getPriceName());
                     itemPrice.setMinUnits(requestModel.getMinUnits());
                     itemPrice.setPricePerUnit(requestModel.getPricePerUnit());
-                    itemPrice.setTypePriceCode(requestModel.getPriceTypeCode());
-                    itemPrice.setPriceType(PriceTypeEnum.searchByPriceCode(requestModel.getPriceTypeCode()));
 
                     return priceRepository.save(itemPrice).map( mapper::dbModelToResponseModel);
                 });

@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class CreateItemPriceResponseDto {
 
     private String priceId;
-    private String priceCode;
+    private Integer priceTypeCode;
     private String priceName;
     private Long minUnit;
     private String itemId;
@@ -21,12 +21,12 @@ public class CreateItemPriceResponseDto {
         this.priceId = priceId;
     }
 
-    public String getPriceCode() {
-        return priceCode;
+    public Integer getPriceTypeCode() {
+        return priceTypeCode;
     }
 
-    public void setPriceCode(String priceCode) {
-        this.priceCode = priceCode;
+    public void setPriceTypeCode(Integer priceTypeCode) {
+        this.priceTypeCode = priceTypeCode;
     }
 
     public String getPriceName() {
